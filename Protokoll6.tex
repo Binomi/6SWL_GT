@@ -1,0 +1,200 @@
+% Für Bindekorrektur als optionales Argument "BCORfaktormitmaßeinheit", dann
+% sieht auch Option "twoside" vernünftig aus
+% Näheres zu "scrartcl" bzw. "scrreprt" und "scrbook" siehe KOMA-Skript Doku
+\documentclass[12pt,a4paper,titlepage,headinclude,bibtotoc]{scrartcl}
+
+
+%---- Allgemeine Layout Einstellungen ------------------------------------------
+
+% Für Kopf und Fußzeilen, siehe auch KOMA-Skript Doku
+\usepackage[komastyle]{scrpage2}
+\pagestyle{scrheadings}
+\automark[section]{chapter}
+\setheadsepline{0.5pt}[\color{black}]
+
+
+%Einstellungen für Figuren- und Tabellenbeschriftungen
+\setkomafont{captionlabel}{\sffamily\bfseries}
+\setcapindent{0em}
+
+
+%---- Weitere Pakete -----------------------------------------------------------
+% Die Pakete sind alle in der TeX Live Distribution enthalten. Wichtige Adressen
+% www.ctan.org, www.dante.de
+
+% Sprachunterstützung
+\usepackage[ngerman]{babel}
+
+% Benutzung von Umlauten direkt im Text
+% entweder "latin1" oder "utf8"
+\usepackage[utf8]{inputenc}
+
+% Pakete mit Mathesymbolen und zur Beseitigung von Schwächen der Mathe-Umgebung
+\usepackage{latexsym,exscale,amssymb,amsmath}
+
+% Weitere Symbole
+\usepackage[nointegrals]{wasysym}
+\usepackage{eurosym}
+
+% Anderes Literaturverzeichnisformat
+%\usepackage[square,sort&compress]{natbib}
+
+% Für Farbe
+\usepackage{color}
+
+% Zur Graphikausgabe
+%Beipiel: \includegraphics[width=\textwidth]{grafik.png}
+\usepackage{graphicx}
+
+% Text umfließt Graphiken und Tabellen
+% Beispiel:
+% \begin{wrapfigure}[Zeilenanzahl]{"l" oder "r"}{breite}
+%   \centering
+%   \includegraphics[width=...]{grafik}
+%   \caption{Beschriftung} 
+%   \label{fig:grafik}
+% \end{wrapfigure}
+\usepackage{wrapfig}
+
+% Mehrere Abbildungen nebeneinander
+% Beispiel:
+% \begin{figure}[htb]
+%   \centering
+%   \subfigure[Beschriftung 1\label{fig:label1}]
+%   {\includegraphics[width=0.49\textwidth]{grafik1}}
+%   \hfill
+%   \subfigure[Beschriftung 2\label{fig:label2}]
+%   {\includegraphics[width=0.49\textwidth]{grafik2}}
+%   \caption{Beschriftung allgemein}
+%   \label{fig:label-gesamt}
+% \end{figure}
+\usepackage{subfigure}
+
+% Caption neben Abbildung
+% Beispiel:
+% \sidecaptionvpos{figure}{"c" oder "t" oder "b"}
+% \begin{SCfigure}[rel. Breite (normalerweise = 1)][hbt]
+%   \centering
+%   \includegraphics[width=0.5\textwidth]{grafik.png}
+%   \caption{Beschreibung}
+%   \label{fig:}
+% \end{SCfigure}
+\usepackage{sidecap}
+
+% Befehl für "Entspricht"-Zeichen
+\newcommand{\corresponds}{\ensuremath{\mathrel{\widehat{=}}}}
+
+%Für chemische Formeln (von www.dante.de)
+%% Anpassung an LaTeX(2e) von Bernd Raichle
+\makeatletter
+\DeclareRobustCommand{\chemical}[1]{%
+  {\(\m@th
+   \edef\resetfontdimens{\noexpand\)%
+       \fontdimen16\textfont2=\the\fontdimen16\textfont2
+       \fontdimen17\textfont2=\the\fontdimen17\textfont2\relax}%
+   \fontdimen16\textfont2=2.7pt \fontdimen17\textfont2=2.7pt
+   \mathrm{#1}%
+   \resetfontdimens}}
+\makeatother
+
+%Si Einheiten
+\usepackage{siunitx}
+
+%c++ Code einbinden
+\usepackage{listings}
+\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt}
+
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\textsc{\Large Anfängerpraktikum der Fakultät für
+  Physik,\\[1.5ex] Universität Göttingen}
+
+\vspace*{4.2cm}
+
+\rule{\textwidth}{1pt}\\[0.5cm]
+{\huge \bfseries
+  Spezifische Wärme der Luft und Gasthermometer\\[1.5ex]
+  Protokoll:}\\[0.5cm]
+\rule{\textwidth}{1pt}
+
+\vspace*{3.0cm}
+
+\begin{Large}
+\begin{tabular}{ll}
+Praktikant:
+	&  Skrollan Detzler\\
+ 	&  Felix Kurtz\\
+% 	&  Michael Lohmann\\
+%	&  Kevin Lüdemann\\
+
+  E-Mail: 
+	&  skrollan.detzler@stud.uni-goettingen.de\\
+	&  felix.kurtz@stud.uni-goettingen.de\\
+%	& m.lohmann@stud.uni-goettingen.de\\
+	
+%	&  kevin.luedemann@stud.uni-goettingen.de\\
+
+ Betreuer: & Martin Ochmann\\
+ Versuchsdatum: & 02.06.2014\\
+\end{tabular}
+\end{Large}
+
+\vspace*{0.8cm}
+
+\begin{Large}
+\fbox{
+  \begin{minipage}[t][2.5cm][t]{6cm} 
+    Testat:
+  \end{minipage}
+}
+\end{Large}
+
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\section{Einleitung}
+\label{sec:einleitung}
+Der erste Teil des Versuches dient der Bestimmung des absoluten Temperatur-Nullpunktes, eine der wichtigsten Naturkonstanten in der Thermodynamik.
+Dies geschieht mithilfe eines Gasthermometers.\\
+Im zweiten Teil bestimmt man die spezifische Wärme von Luft.
+
+\section{Theorie}
+\label{sec:theorie}
+\subsection{Gasthermometer}
+
+\subsection{Spezifische Wärme der Luft}
+
+\section{Durchführung}
+\label{sec:durchfuehrung}
+\subsection{Gasthermometer}
+BILD\\
+Zuerst wird das Ventil des Druckmessgerätes geöffnet, um im Gaskolben Umgebungsdruck herzustellen. Nun wird der Glaskolben durch Eiswasser auf etwa $0^\circ$ C herunter gekühlt. Das Druckmessgerät sollte ungefähr 0 kPa anzeigen, da es nur Differenzen zum Umgebungsdruck angibt. Danach das Ventil schließen.\\
+Nun wird die Heizplatte angeschaltet und damit das den Glaskolben umgebende Wasser auf bis zu $100^\circ$ C erhitzt.
+Dabei misst man in $5^\circ$ C Schritten den Überdruck im Kolben.
+Es ist also immer auf das Thermometer zu achten.
+Außerdem muss das Wasser ständig umgerührt werden, um eine möglichst homogene Temperatur sicherzustellen.
+Ferner sollte man bei hohen Temperaturen aufpassen, dass man sich nicht verbrüht.
+Dann wird die Platte abgeschaltet, das Gefäß von dieser herunterbewegt und das Wasser mit Eis heruntergekühlt.
+Dabei muss auf die Menge geachtet werden, da man auch beim Abkühlen den Druck in Abhängigkeit von der Temperatur messen soll.
+Deshalb ist auch das Umrühren unerlässlich.
+Des weiteren muss dafür gesorgt werden, dass das überlaufende Wasser aufgefangen wird. 
+\subsection{Spezifische Wärme der Luft}
+BILD\\
+Zuerst wird der Kondensator mit einer voreingestellten Spannung zwischen 100V und 500V geladen. Diesen entlädt man daraufhin über den Heizdraht, während man parallel den Maximalausschlag des Manometers abliest. Dieser Vorgang wird für mehrere Spannungen je dreimal wiederholt. Zwischen den Messungen wird der Zylinder belüftet.
+
+\section{Auswertung}
+\label{sec:auswertung}
+
+
+\section{Diskussion}
+\label{sec:diskussion}
+
+\section{Anhang}
+
+\end{document}
