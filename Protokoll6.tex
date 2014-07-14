@@ -12,6 +12,8 @@
 \automark[section]{chapter}
 \setheadsepline{0.5pt}[\color{black}]
 
+%keine Einrückung
+\parindent0pt
 
 %Einstellungen für Figuren- und Tabellenbeschriftungen
 \setkomafont{captionlabel}{\sffamily\bfseries}
@@ -103,6 +105,19 @@
 %c++ Code einbinden
 \usepackage{listings}
 \lstset{numbers=left, numberstyle=\tiny, numbersep=5pt}
+
+%errorFkt
+\newcommand{\erf}{\ensuremath{\text{erf}}}
+
+%Differential
+\newcommand{\dif}{\ensuremath{\mathrm{d}}}
+
+%Boxen,etc.
+\usepackage{fancybox}
+\usepackage{empheq}
+
+%Fußnoten auf gleiche Seite
+\interfootnotelinepenalty=1000
 
 
 \begin{document}
