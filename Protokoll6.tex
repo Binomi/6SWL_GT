@@ -186,13 +186,13 @@ Diese gibt an, wie viel Energie pro Kilogramm benötigt wird, um sie um ein Kelv
 Um Gase zu beschreiben benutzen wir hier das einfachste Modell, nämlich das des idealen Gases.
 Dabei geht man von Punktteilchen aus.
 Für mehratomige Gase wird diese Annahme immer ungenauer.\\
-Die Abhängigkeiten zwischen Druck $p$, Volumen $V$ und Temperatur $T$ eines idealen Gases wird durch die folgende \textit{universelle Gasgleichung} beschrieben.
+Die Abhängigkeiten zwischen Druck $p$, Volumen $V$ und Temperatur $T$ eines idealen Gases wird durch die folgende \textit{universelle Gasgleichung} \cite[S.261]{gerthsen} beschrieben.
 \begin{align}
  p \cdot V = nRT
  \label{eq:uGasGl}
 \end{align}
 Dabei ist $R\approx 8.314 ~ \si{\joule \mol^{-1} \kelvin^{-1}}$ die universelle Gaskonstante und $n$ die Stoffmenge in Mol.
-Hält man neben der Stoffmenge noch $V$ oder $p$ konstant, erhält man folgende Abhängigkeiten (Gesetze von Gay-Lussac):
+Hält man neben der Stoffmenge noch $V$ oder $p$ konstant, erhält man folgende Abhängigkeiten (Gesetze von Gay-Lussac \cite[S.261]{gerthsen}):
 \begin{align}
 	p(\vartheta)&=p_0 [1+\beta\vartheta] \quad, \quad V =\text{const.}\\
 	V(\vartheta)&=V_0 [1+\beta\vartheta] \quad, \quad p=\text{const.}
@@ -204,7 +204,7 @@ Bei dieser Temperatur hätte jeder Stoff keine Ausdehnung.
 Er ist jedoch experimentell nicht zu erreichen und kann per Extrapolation berechnet werden.
 
 \subsection{Spezifische Wärme der Luft}
-Die innere Energie $U$ eines Gases hängt proportional von seiner Temperatur ab.
+Die innere Energie $U$ eines Gases hängt proportional von seiner Temperatur ab \cite[S.257]{gerthsen}.
 \begin{align}
 	U=\frac{f}{2} n R T
 \end{align}
@@ -213,21 +213,20 @@ Bei einem idealen Gas sind dies die 3 Raumrichtungen.
 Mehratomige Gase können noch rotieren, etc.
 So erhöht sich die Zahl der Freiheitsgrade entsprechend.\\
 
-Der \textit{1.Hauptsatz} der Wärmelehre besagt
+Der \textit{1.Hauptsatz} der Wärmelehre besagt nach \cite[S.262f.]{gerthsen}
 \begin{align}
 	\dif Q = \dif U+\dif W = \dif U+p\dif V \label{eq:1HS}
 \end{align}
 
-Aus der idealen Gasgleichung  folgt mit der Produktregel $R~\Delta T = p\Delta V+ V\Delta p$. Außerdem gilt für ideale Gase $U=c_VnT$ mit der spezifischen Wärme $c_V$.
-Mit diesen Gleichungen sowie dem ersten Hauptsatz kann man nun für $\Delta V \ll V$ die Anzahl der Freiheitsgrade bzw. die spezifische Wärme eines Gases berechnen:
+Aus der idealen Gasgleichung  folgt mit der Produktregel $R~\Delta T = p\Delta V+ V\Delta p$. Außerdem gilt für ideale Gase $U=c_VnT$ mit der spezifischen Wärme $c_V$ \cite[S.263]{gerthsen}.
+Mit diesen Gleichungen sowie dem ersten Hauptsatz kann man nun die Anzahl der Freiheitsgrade bzw. die spezifische Wärme eines Gases berechnen:
 \begin{align}
 \frac{f}{2}=\frac{c_V}{R}
           &=\frac{\Delta U}{R~\Delta T}\notag\\
           &=\frac{\Delta Q-p\Delta V}{p\Delta V+V\Delta p} \label{eq:fhalbe}
 \end{align}
 
-
-Die in einem \textit{Kondensator} gespeicherte Energie lässt sich  durch Integration von $Q=CU$ nach $U$ berechnen.
+Die in einem \textit{Kondensator} gespeicherte Energie lässt sich  durch Integration von $Q=CU$ nach $U$ berechnen \cite[S.329]{gerthsen}.
 \begin{align}
 	W=\int \limits_{0}^U Q ~\dif U'=\frac{1}{2}CU^2
 	\label{eq:Kondensator}
@@ -287,9 +286,6 @@ Ferner wird das Volumen des Zylinders gemessen.
 \bibitem{gerthsen}
 	\textsc{Dieter Meschede} (2010): \emph{Gerthsen Physik}, 24. Auflage, Springer Heidelberg
 Dordrecht London New York
-
-\bibitem{demtroeder}
-\textsc{Wolfgang Demtröder} (2008): \emph{Experimentalphysik 1 - Mechanik und Wärme}, 5. Auflage, Springer Berlin, Heidelberg
 
 \bibitem{lp} 
 	\emph{Lehrportal der Universität Göttingen, Spezifische Wärme der Luft und Gasthermometer},
