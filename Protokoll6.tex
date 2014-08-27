@@ -204,10 +204,6 @@ Bei dieser Temperatur hätte jeder Stoff keine Ausdehnung.
 Er ist jedoch experimentell nicht zu erreichen und kann per Extrapolation berechnet werden.
 
 \subsection{Spezifische Wärme der Luft}
-1.Hauptsatz der Wärmelehre
-\begin{align}
-	\dif Q = \dif U+\dif W
-\end{align}
 Die innere Energie $U$ eines Gases hängt proportional von seiner Temperatur ab.
 \begin{align}
 	U=\frac{f}{2} n R T
@@ -215,19 +211,26 @@ Die innere Energie $U$ eines Gases hängt proportional von seiner Temperatur ab.
 Dabei ist $f$ die Anzahl der Freiheitsgrade des Gases.
 Bei einem idealen Gas sind dies die 3 Raumrichtungen.
 Mehratomige Gase können noch rotieren, etc.
-So erhöht sich die Zahl der Freiheitsgrade entsprechend.
+So erhöht sich die Zahl der Freiheitsgrade entsprechend.\\
 
-%von Michael und Kevin kopiert
+Der \textit{1.Hauptsatz} der Wärmelehre besagt
 \begin{align}
-\frac{\Delta U}{R~\Delta T}&=\frac{\Delta Q + \Delta W}{R~\Delta T}\notag\\
-\Rightarrow \frac{f}{2}&=\frac{\Delta Q-p\Delta V}{V~\Delta p+p~\Delta V} \label{eq:fhalbe}\\
-\Rightarrow \frac{c_V}{R}&=\frac{\Delta Q-p\Delta V}{V~\Delta p+p~\Delta V}\notag
+	\dif Q = \dif U+\dif W = \dif U+p\dif V \label{eq:1HS}
+\end{align}
+
+Aus der idealen Gasgleichung  folgt mit der Produktregel $R~\Delta T = p\Delta V+ V\Delta p$. Außerdem gilt für ideale Gase $U=c_VnT$ mit der spezifischen Wärme $c_V$.
+Mit diesen Gleichungen sowie dem ersten Hauptsatz kann man nun für $\Delta V \ll V$ die Anzahl der Freiheitsgrade bzw. die spezifische Wärme eines Gases berechnen:
+\begin{align}
+\frac{f}{2}=\frac{c_V}{R}
+          &=\frac{\Delta U}{R~\Delta T}\notag\\
+          &=\frac{\Delta Q-p\Delta V}{p\Delta V+V\Delta p} \label{eq:fhalbe}
 \end{align}
 
 
-Energie eines Kondensators
+Die in einem \textit{Kondensator} gespeicherte Energie lässt sich  durch Integration von $Q=CU$ nach $U$ berechnen.
 \begin{align}
-	W=\frac{1}{2}CU^2
+	W=\int \limits_{0}^U Q ~\dif U'=\frac{1}{2}CU^2
+	\label{eq:Kondensator}
 \end{align}
 
 \section{Durchführung}
@@ -264,8 +267,9 @@ Des weiteren muss dafür gesorgt werden, dass das überlaufende Wasser aufgefang
 Zuerst wird der Kondensator mit einer voreingestellten Spannung zwischen 100V und 500V geladen.
 Diesen entlädt man daraufhin über den Heizdraht, während man parallel den Maximalausschlag des Manometers abliest.
 Dieser Vorgang wird für mehrere Spannungen je dreimal wiederholt.
-Zwischen den Messungen wird der Zylinder belüftet.\\
-Zuletzt wird das Volumen des Zylinders gemessen.
+Zwischen den Messungen wird der Zylinder belüftet.
+Zuletzt sollte das Ventil geöffnet zurückgelassen werden.\\
+Ferner wird das Volumen des Zylinders gemessen.
 
 \section{Auswertung}
 \label{sec:auswertung}
