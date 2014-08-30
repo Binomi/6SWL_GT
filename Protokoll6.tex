@@ -270,14 +270,136 @@ Zwischen den Messungen wird der Zylinder belüftet.
 Zuletzt sollte das Ventil geöffnet zurückgelassen werden.\\
 Ferner wird das Volumen des Zylinders gemessen.
 
+%Auswertung und Diskussion von Michael&Kevin
 \section{Auswertung}
 \label{sec:auswertung}
+
+\subsection{Gasthermometer}
+Die Graphik \ref{fig:gas1} zeigt den Druck p des Gases gegen die jeweilige Temperatur aufgetragen mit der linearen Regression.
+\subsubsection{Erwärmung des Gases}
+\label{sec:gas1}
+\begin{figure}[!h]
+\centering
+\input{gas1p.tex}
+\caption{lineare Regression der Temperatur gegen den Druck für die Erwärmung}
+\label{fig:gas1}
+\end{figure}
+Die von uns aufgenommenen Daten (siehe Anhang) mussten vor dem Verwenden noch umgerechnet werden.
+Wir mussten den angegeben Druck verdoppeln und den zu dem Zeitpunkt herschenden absolut Druck addieren.
+Anschließend kann die lineare Regression durchgeführt werden.
+Hierzu wird eine lineare Funktion y=m$\cdot$x+b gefittet, wobei m die Steigung und b der y-Achsenabschnitt ist.
+Aus der Graphik \ref{fig:gas1} ergeben sich die hier aufgeführten Werte.
+\begin{align*}
+	\text{m} &= (345.1\pm0.9)\si{\pascal/\celsius}\\
+	\text{b} &= (101640\pm50)\si{\pascal}\\
+\end{align*}
+Stellt man nun die lineare Gleichung nach x um, so ergibt sich die folgende Gleichung.
 \begin{align}
-	p=p_L+\Delta p
+	x = \frac{\text{y}-\text{b}}{\text{m}}\label{eq:gasfor}
 \end{align}
+In unserem Fall wollen wir die Nullpunktstemperatur für den Druck p=0.
+Dies bedeutet, dass y=0 ist.
+Hierzu muss noch angenommen werden, dass sich das Gas wie ein ideales Gas verhällt.
+Der Fehler für die Temperatur lässt durch eine Gauß'sche Fehlerfortpflanzung berechnen.
+\begin{align}
+	\sigma_{x}=\sqrt{\sigma_\text{b}^2\left(\frac{-1}{\text{m}}\right)^2+\sigma_\text{m}^2\left(\frac{\text{b}}{\text{m}^2}\right)^2}\label{eq:fegas}
+\end{align}
+Setzt man die Werte aus der linearen Regression ein, so ergibt sich die folgende absolute Nullpunktstemperatur.
+$$\shadowbox{$\text{T}=(-294.5\pm0.8)\si{\celsius}$}$$
+
+\subsubsection{Abkühlung des Gases}
+\label{sec:gas2}
+Die Graphik \ref{fig:gas2} zeigt, wie oben auch, den Druck p gegen die jeweilige Temperatur aufgetrangen mit der linearen Regression.
+\begin{figure}[!h]
+\centering
+\input{gas2p.tex}
+\caption{lineare Regression der Temperatur gegen den Druck für die Abkühlung}
+\label{fig:gas2}
+\end{figure}
+Ebenfalls wie oben, mussten die Daten noch barbeitet werden.
+Dies wurde auf die gleiche Art und Weise, wie im Kaiptel \ref{sec:gas1} gemacht.
+Hier wird ebenfalls die Nullpunktstemperatur für einen Druck p=0 bestimmt.
+Die Fehlerformel ist die gleiche, wie die Formel \eqref{eq:fegas} von oben.
+Aus der linearen Regression der Graphik \ref{fig:gas2} ergeben sich die hier aufgeführten Werte.
+\begin{align}
+	\text{m} &= (343\pm3)\si{\pascal/\celsius}\\
+	\text{b} &= (101700\pm200)\si{\pascal}
+\end{align}
+Setzt man wieder y=0, so ergibt sich aus der Formel \eqref{eq:gasfor} der folgende Nullpunktstemperaturwert.
+$$\shadowbox{$\text{T}=(-297\pm3)\si{\celsius}$}$$
+
+\subsubsection{Mittelwert}
+Aus den beiden Kapiteln \ref{sec:gas1} und \ref{sec:gas2} kann jetzt der gewichteter Mittelwert gebildet werden.
+Es ergibt sich ein Wert, wie unten aufgeführt.
+$$\shadowbox{$\overline{\text{T}}=(-294.7\pm0.8)\si{\celsius}$}$$
+Nimmt man einen Literaturwert von T=$-273.15\si{\celsius}$ an (\cite[S. 73]{prakti} ), so ergibt sich zu dem von uns berechneten Wert eine Abweichung von 8\%.
+
+\subsection{Spezifische Wärme von Luft}
+\subsubsection{Freiheitsgrade der Luft}
+Zum Berechnen der spezifischen Wärme von Luft $c_v$ bzw. der Freiheitsgrade des Gases, haben wir nach jeder Entladung der Kondensatoren die Steighöhe des Manometers notiert.
+Diese muss jetzt in einen Druck umgerechnet werden.
+Hierfür gilt die Formel $\Delta \rho = \rho_\text{Wasser} \cdot g \cdot h\left(1+\frac{r_1^2}{r_2^2}\right)$.
+Die Werte für $r_1=2.0$mm und $r_2=9,2$mm sind aus der Praktikumsanleitung \cite[S. 73]{prakti}.
+Die zugeführte Energie lässt sich durch die Formel \ref{eq:fhalbe} aus der Theorie berechnen.
+Die Kapazität berechnet sich in unserem Fall aus zwei parallel geschalteten Kondensatoren mit einer Kapizät von je $10\mu$F, wieder aus der Praktikumsanleitung.
+Die Graphik \ref{fig:druckwarm} zeigt die Druckänderung von Luft gegen die Kondensatorenergie aufgetragen.
+\begin{figure}[!h]
+\centering
+\input{kondwarm.tex}
+\caption{Energie des Kondensators aufgetragen gegen die Änderung im Druck}
+\label{fig:druckwarm}
+\end{figure}
+Aus der durchgeführten linearen Regression ergibt sich eine Steigung von $m=(108\pm5)\frac{\text{J}}{\text{Pa}}$
+bei einem reduziertem $\chi^2$ von 1.1.
+Um die Freiheitsgrade des Gases zu bestimmen, nehmen wir uns die Formel \eqref{eq:fhalbe}
+aus der Theorie.
+Hier wird angenommen, dass $\Delta V=0$ ist, da das Volumen konstant bleibt.
+Daraus ergibt sich diese Formel für die Freiheitsgrade f, wenn man $\frac{\Delta Q}{\Delta p}=\frac1m$ setzt, wo bei m die Steigung der Regressionsgeraden ist.
+\begin{align}
+	f= \frac{2\cdot \Delta Q}{V\cdot \Delta p}=\frac{2}{V\cdot m}
+\end{align}
+Das hierbei verwendete Volumen berechneten wir aus den aufgenommenen Maßen des Zylinders, welche $r=(0.044\pm 0.002)$m für den Radius und $h=(0.400\pm 0.005)$m für die Höhe betrugen.
+Der Fehler ergibt sich aus der Gauß'sche Fehlerfortpflanzung.
+\begin{align}
+	\sigma_f=\sqrt{\sigma_V^2\left(\frac{-2}{V^2\cdot m}\right)^2+\sigma_m^2\left(\frac{-2}{V\cdot m^2}\right)^2}
+\end{align}
+Hierraus ergeben sich die unten aufgeführten Freiheitsgrade.
+$$\shadowbox{$f=(8\pm 1)$}$$
+Dies ergibt eine Abweichung von fast $40\%$ zum Literaturwert $f=5$, da Luft zu $99\%$ aus Stickstoff (N$_2$) und Sauerstoff (O$_2$) besteht, welche jeweils 5 Freiheitsgrade haben.
+
+\subsubsection{Spezifische Wärme $c_v$}
+Aus den oben berechneten Freiheitsgraden der Luft kann man jetzt mit der gleichen Formel \eqref{eq:fhalbe}
+, wie oben die Spezifische Wärme $c_v$ der Luft berechnen.
+Es ergibt sich durch umstellen der Formel, die hier aufgeführte Formel.
+\begin{align}
+	c_v=\frac{f\cdot R}{2}
+\end{align}
+Durch die Gauß'sche Fehlerfortpflanzung ergibt sich die Gleichung für den Fehler (unter der Voraussetzung, dass nur f fehlerbehaftet ist).
+\begin{align}
+	\sigma_{c_v}= \sqrt{\sigma_f^2\left(\frac{R}{2}\right)^2}
+\end{align}
+Es ergibt sich ein Wert für die spezifische Wärme von Luft.
+$$\shadowbox{$c_v=(33\pm 5)\si{\joule/\mol\kelvin}$}$$
+Dies ist eine Abweichung von $40\%$
+zum Literaturwert von $c_v=20.7\si{\joule/\mol\kelvin}$ \cite[S. 260]{gerthsen}.
 
 \section{Diskussion}
 \label{sec:diskussion}
+\subsection{Gasthermometer}
+Unser Wert für die Nullpunktstemperatur hat eine Abweichung von 8\% zum Literaturwert.
+Diese Abweichung ist ziemlich gering, dennoch liegt der Literaturwert nicht im Fehlerintervall.
+Als mögliche Fehlerquelle kann man aufführen, dass wir das Manometer nicht ganz richtig bedient haben.
+Es ist wahrscheinlich, dass wir keinen vollständigen Druckausgleich des Gefäßes mit der Außenluft duchgeführt haben.
+Wir haben somit nicht den Außendruck bei einer Temperatur von 0\si{\celsius}.
+Dies sorgt dafür, dass die sich ergebene Grade einen zu höheren y-Achsenabschnitt hat, als sie sollte und damit die Nullpunktstemperatur niedrieger ist, als die des Literaturwertes.
+Dies können etwa 8hPa gewesen sein, die somit unser Ergebnis verfälscht haben.
+
+\subsection{Spezifische Wärme der Luft}
+Unsere Messung der Freiheitsgrade der Luft weicht um $40\%$ vom Literaturwert ab.
+Allerdings ist unser Fehlerintervall auch relativ groß, wenn es auch den theoretischen Wert nicht mit einschließt.
+Im Vergleich zu anderen Arbeiten ist unsere Geradensteigung zu klein (andere haben Werte von ca. $m=130$).
+Vermutlich haben wir durch die hohe Geschwindigkeit, mit der abgelesen werden musste, viele fehlerbehaftete Werte notiert.
+Um dies in zukünftigen Arbeiten zu beheben, wäre es eine Möglichkeit, eine Kamera auf die Skala zu richten und die Messungen aufzunehmen.
 
 \section{Anhang}
 
