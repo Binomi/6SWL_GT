@@ -194,8 +194,9 @@ Die Abhängigkeiten zwischen Druck $p$, Volumen $V$ und Temperatur $T$ eines ide
 Dabei ist $R\approx 8.314 ~ \si{\joule \mol^{-1} \kelvin^{-1}}$ die universelle Gaskonstante und $n$ die Stoffmenge in Mol.
 Hält man neben der Stoffmenge noch $V$ oder $p$ konstant, erhält man folgende Abhängigkeiten (Gesetze von Gay-Lussac \cite[S.261]{gerthsen}):
 \begin{align}
-	p(\vartheta)&=p_0 [1+\beta\vartheta] \quad, \quad V =\text{const.}\\
-	V(\vartheta)&=V_0 [1+\beta\vartheta] \quad, \quad p=\text{const.}
+	p(\vartheta)&=p_0 [1+\beta\vartheta] \quad, \quad V =\text{const.}
+	\label{eq:p(T)}\\
+	V(\vartheta)&=V_0 [1+\beta\vartheta] \quad, \quad p=\text{const.}	
 \end{align}
 Hierbei wird die Temperatur $\vartheta$ in Celsius gemessen, sodass $p_0$ der Druck und $V_0$ das Volumen bei $0\si{\celsius}$ ist.
 Außerdem ist der Faktor $\beta=1/(273.15 \si{\celsius})$ der Umrechnung zwischen der Kelvin- und der Celsius-Skala geschuldet.\\
@@ -275,64 +276,59 @@ Ferner wird das Volumen des Zylinders gemessen.
 \label{sec:auswertung}
 
 \subsection{Gasthermometer}
-Die Graphik \ref{fig:gas1} zeigt den Druck p des Gases gegen die jeweilige Temperatur aufgetragen mit der linearen Regression.
-\subsubsection{Erwärmung des Gases}
+Die Abbildungen \ref{fig:gas1} und \ref{fig:gas2} zeigen den Druck $p$ im Kolben in Abhängigkeit von der Temperatur - separat für Erwärmen und Abkühlen.
+Da das Druckmessgerät nur Überdruck misst, muss der Umgebungsdruck addiert werden.
+Außerdem steht auf dem Gerät, dass der angezeigte Wert verdoppelt werden muss, um den Überdruck in kPa zu erhalten.\\
+
+
+Die Gleichung \eqref{eq:p(T)} besagt, dass ein linearer Zusammenhang  zwischen den beiden aufgetragenen Größen besteht:
+$p(\vartheta)=m\vartheta+b$.
+Der y-Achsenabschnitt $b$ ist der Umgebungsdruck $p_0$, die Steigung $m$ der Geraden das Produkt $p_0\beta$.
+Für den Absoluten Nullpunkt $\vartheta_0$ ergibt sich also diese Formel und der zugehörige Fehler aus der Fehlerfortpflanzung
+\begin{align}
+	\vartheta_0&=-1/\beta=-\frac{b}{m}
+	\label{eq:gas}\\
+	\sigma_{\vartheta_0}&=\sqrt{\sigma_\text{b}^2\left(\frac{-1}{\text{m}}\right)^2+\sigma_\text{m}^2\left(\frac{\text{b}}{\text{m}^2}\right)^2}
+	\label{eq:fegas}
+\end{align}
+ 
+\subsubsection{Erwärmen}
 \label{sec:gas1}
 \begin{figure}[!h]
 \centering
 \input{gas1p.tex}
-\caption{lineare Regression der Temperatur gegen den Druck für die Erwärmung}
+\caption{Erwärmen: Druck als Funktion der Temperatur}
 \label{fig:gas1}
 \end{figure}
-Die von uns aufgenommenen Daten (siehe Anhang) mussten vor dem Verwenden noch umgerechnet werden.
-Wir mussten den angegeben Druck verdoppeln und den zu dem Zeitpunkt herschenden absolut Druck addieren.
-Anschließend kann die lineare Regression durchgeführt werden.
-Hierzu wird eine lineare Funktion y=m$\cdot$x+b gefittet, wobei m die Steigung und b der y-Achsenabschnitt ist.
-Aus der Graphik \ref{fig:gas1} ergeben sich die hier aufgeführten Werte.
+Die lineare Regression dieser Daten ergibt diese Werte für $m$ und $b$:
 \begin{align*}
 	\text{m} &= (345.1\pm0.9)\si{\pascal/\celsius}\\
 	\text{b} &= (101640\pm50)\si{\pascal}\\
 \end{align*}
-Stellt man nun die lineare Gleichung nach x um, so ergibt sich die folgende Gleichung.
-\begin{align}
-	x = \frac{\text{y}-\text{b}}{\text{m}}\label{eq:gasfor}
-\end{align}
-In unserem Fall wollen wir die Nullpunktstemperatur für den Druck p=0.
-Dies bedeutet, dass y=0 ist.
-Hierzu muss noch angenommen werden, dass sich das Gas wie ein ideales Gas verhällt.
-Der Fehler für die Temperatur lässt durch eine Gauß'sche Fehlerfortpflanzung berechnen.
-\begin{align}
-	\sigma_{x}=\sqrt{\sigma_\text{b}^2\left(\frac{-1}{\text{m}}\right)^2+\sigma_\text{m}^2\left(\frac{\text{b}}{\text{m}^2}\right)^2}\label{eq:fegas}
-\end{align}
-Setzt man die Werte aus der linearen Regression ein, so ergibt sich die folgende absolute Nullpunktstemperatur.
-$$\shadowbox{$\text{T}=(-294.5\pm0.8)\si{\celsius}$}$$
+Setzt man diese Werte in die obigen Formeln zur Bestimmung des absoluten Nullpunkts \eqref{eq:gas} und \eqref{eq:fegas} ein, ergibt sich:
+$$\shadowbox{$\vartheta_0=(-294.5\pm0.8)\si{\celsius}$}$$
 
-\subsubsection{Abkühlung des Gases}
+\subsubsection{Abkühlen}
 \label{sec:gas2}
-Die Graphik \ref{fig:gas2} zeigt, wie oben auch, den Druck p gegen die jeweilige Temperatur aufgetrangen mit der linearen Regression.
 \begin{figure}[!h]
 \centering
 \input{gas2p.tex}
-\caption{lineare Regression der Temperatur gegen den Druck für die Abkühlung}
+\caption{Abkühlen: Druck als Funktion der Temperatur}
 \label{fig:gas2}
 \end{figure}
-Ebenfalls wie oben, mussten die Daten noch barbeitet werden.
-Dies wurde auf die gleiche Art und Weise, wie im Kaiptel \ref{sec:gas1} gemacht.
-Hier wird ebenfalls die Nullpunktstemperatur für einen Druck p=0 bestimmt.
-Die Fehlerformel ist die gleiche, wie die Formel \eqref{eq:fegas} von oben.
-Aus der linearen Regression der Graphik \ref{fig:gas2} ergeben sich die hier aufgeführten Werte.
+Aus der linearen Regression ergibt sich:
 \begin{align}
 	\text{m} &= (343\pm3)\si{\pascal/\celsius}\\
 	\text{b} &= (101700\pm200)\si{\pascal}
 \end{align}
-Setzt man wieder y=0, so ergibt sich aus der Formel \eqref{eq:gasfor} der folgende Nullpunktstemperaturwert.
-$$\shadowbox{$\text{T}=(-297\pm3)\si{\celsius}$}$$
+Der daraus - wie zuvor - berechnete Nullpunkt liegt bei
+$$\shadowbox{$\vartheta_0=(-297\pm3)\si{\celsius}$}$$
 
 \subsubsection{Mittelwert}
-Aus den beiden Kapiteln \ref{sec:gas1} und \ref{sec:gas2} kann jetzt der gewichteter Mittelwert gebildet werden.
-Es ergibt sich ein Wert, wie unten aufgeführt.
-$$\shadowbox{$\overline{\text{T}}=(-294.7\pm0.8)\si{\celsius}$}$$
-Nimmt man einen Literaturwert von T=$-273.15\si{\celsius}$ an (\cite[S. 73]{prakti} ), so ergibt sich zu dem von uns berechneten Wert eine Abweichung von 8\%.
+Aus Erwärmen und Abkühlen kann jetzt der gewichteter Mittelwert gebildet werden.
+Es ergibt sich:
+$$\shadowbox{$\overline{\vartheta_0}=(-294.7\pm0.8)\si{\celsius}$}$$
+Dies ist eine Abweichung von 8\% zum Literaturwert von $\vartheta_0=-273.15\si{\celsius}$.
 
 \subsection{Spezifische Wärme von Luft}
 \subsubsection{Freiheitsgrade der Luft}
@@ -401,7 +397,7 @@ Im Vergleich zu anderen Arbeiten ist unsere Geradensteigung zu klein (andere hab
 Vermutlich haben wir durch die hohe Geschwindigkeit, mit der abgelesen werden musste, viele fehlerbehaftete Werte notiert.
 Um dies in zukünftigen Arbeiten zu beheben, wäre es eine Möglichkeit, eine Kamera auf die Skala zu richten und die Messungen aufzunehmen.
 
-\section{Anhang}
+%\section{Anhang}
 
 \begin{thebibliography}{100}
 
