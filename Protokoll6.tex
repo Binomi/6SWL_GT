@@ -274,7 +274,8 @@ Ferner wird das Volumen des Zylinders gemessen.
 %Auswertung und Diskussion von Michael&Kevin
 \section{Auswertung}
 \label{sec:auswertung}
-
+Aufgrund von Missverständnissen, etc. zwischen den beiden Praktikanten, werden hier nun - wie mit dem Betreuer abgesprochen - die Messdaten von Kevin Lüdemann und Michael Lohmann verwendet.
+Diese befinden sich unter dem Abschnitt \ref{sec:mess}.
 \subsection{Gasthermometer}
 Die Abbildungen \ref{fig:gas1} und \ref{fig:gas2} zeigen den Druck $p$ im Kolben in Abhängigkeit von der Temperatur - separat für Erwärmen und Abkühlen.
 Da das Druckmessgerät nur Überdruck misst, muss der Umgebungsdruck addiert werden.
@@ -331,29 +332,35 @@ $$\shadowbox{$\overline{\vartheta_0}=(-294.7\pm0.8)\si{\celsius}$}$$
 Dies ist eine Abweichung von 8\% zum Literaturwert von $\vartheta_0=-273.15\si{\celsius}$.
 
 \subsection{Spezifische Wärme von Luft}
-\subsubsection{Freiheitsgrade der Luft}
-Zum Berechnen der spezifischen Wärme von Luft $c_v$ bzw. der Freiheitsgrade des Gases, haben wir nach jeder Entladung der Kondensatoren die Steighöhe des Manometers notiert.
-Diese muss jetzt in einen Druck umgerechnet werden.
-Hierfür gilt die Formel $\Delta \rho = \rho_\text{Wasser} \cdot g \cdot h\left(1+\frac{r_1^2}{r_2^2}\right)$.
-Die Werte für $r_1=2.0$mm und $r_2=9,2$mm sind aus der Praktikumsanleitung \cite[S. 73]{prakti}.
-Die zugeführte Energie lässt sich durch die Formel \ref{eq:fhalbe} aus der Theorie berechnen.
-Die Kapazität berechnet sich in unserem Fall aus zwei parallel geschalteten Kondensatoren mit einer Kapizät von je $10\mu$F, wieder aus der Praktikumsanleitung.
-Die Graphik \ref{fig:druckwarm} zeigt die Druckänderung von Luft gegen die Kondensatorenergie aufgetragen.
+\subsubsection{Druck in Abhängigkeit der zugeführten Energie}
+Die vom Kondensator über den Heizdraht an die Luft im Kolben abgegebene Energie $\Delta Q$ berechnet sich aus \eqref{eq:Kondensator}.
+Um den Druckunterschied $\Delta p$ aus der Steighöhe zu bestimmen, wird folgende Formel benutzt: $$\Delta p = \rho_{\text{H}_2\text{O}} \cdot g \cdot h\left(1+\frac{r_1^2}{r_2^2}\right).$$
+Dabei sind $r_1=2.0$mm und $r_2=9.2$mm die Radien der Schenkel des Manometers.
+Die Werte entstammen der Praktikumsanleitung.
+Ferner wird mit einer Wasserdichte $\rho_{\text{H}_2\text{O}}$ von $1.0~\si{\gram/\centi \meter^3}$ gerechnet.\\
+In der nachfolgenden Abbildung \ref{fig:druckwarm} ist $\Delta p$ in Abhängigkeit von $\Delta Q$ aufgetragen.
 \begin{figure}[!h]
-\centering
-\input{kondwarm.tex}
-\caption{Energie des Kondensators aufgetragen gegen die Änderung im Druck}
-\label{fig:druckwarm}
+	\centering
+	\input{kondwarm.tex}
+	\caption{Druckänderung als Funktion der Energie des Kondensators}
+	\label{fig:druckwarm}
 \end{figure}
-Aus der durchgeführten linearen Regression ergibt sich eine Steigung von $m=(108\pm5)\frac{\text{J}}{\text{Pa}}$
+
+\subsubsection{Freiheitsgrade von Luft}
+Da wir hier die Manometeränderung vernachlässigen ($\Delta V=0$), kann das Gasvolumen als konstant angesehen werden.
+Damit vereinfacht sich Formel \eqref{eq:fhalbe} zur Bestimmung der Freiheitsgrade:
+\begin{align}
+	f= \frac{2\cdot \Delta Q}{V\cdot \Delta p}=\text{const.}
+\end{align}
+Es sollte sich also ein proportionaler Zusammenhang zwischen $\Delta Q$ und $\Delta p$ in Abb.\ref{fig:druckwarm} ergeben.
+Aus der durchgeführten linearen Regression ergibt sich eine Geradensteigung von $m=(108\pm5)\frac{\text{J}}{\text{Pa}}$
 bei einem reduziertem $\chi^2$ von 1.1.
+\\=======================================================\\
 Um die Freiheitsgrade des Gases zu bestimmen, nehmen wir uns die Formel \eqref{eq:fhalbe}
 aus der Theorie.
 Hier wird angenommen, dass $\Delta V=0$ ist, da das Volumen konstant bleibt.
 Daraus ergibt sich diese Formel für die Freiheitsgrade f, wenn man $\frac{\Delta Q}{\Delta p}=\frac1m$ setzt, wo bei m die Steigung der Regressionsgeraden ist.
-\begin{align}
-	f= \frac{2\cdot \Delta Q}{V\cdot \Delta p}=\frac{2}{V\cdot m}
-\end{align}
+
 Das hierbei verwendete Volumen berechneten wir aus den aufgenommenen Maßen des Zylinders, welche $r=(0.044\pm 0.002)$m für den Radius und $h=(0.400\pm 0.005)$m für die Höhe betrugen.
 Der Fehler ergibt sich aus der Gauß'sche Fehlerfortpflanzung.
 \begin{align}
@@ -398,6 +405,7 @@ Vermutlich haben wir durch die hohe Geschwindigkeit, mit der abgelesen werden mu
 Um dies in zukünftigen Arbeiten zu beheben, wäre es eine Möglichkeit, eine Kamera auf die Skala zu richten und die Messungen aufzunehmen.
 
 \section{Messwerte}
+\label{sec:mess}
 \subsection{Gasthermometer}
 \begin{table}[!htb]
 	\centering	
@@ -460,7 +468,7 @@ Um dies in zukünftigen Arbeiten zu beheben, wäre es eine Möglichkeit, eine Ka
 
 \subsection{Spezifische Wärme der Luft}
 Die verwendeten Kondensatoren haben eine Kapazität von $10~\si{\micro\farad}$ und sind parallel geschaltet.
-
+Es ergibt sich also eine Gsamtkapazität $C=20~\si{\micro\farad}$.
 
 \begin{table}[!htb]
 	\centering
