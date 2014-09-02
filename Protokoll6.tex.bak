@@ -196,7 +196,7 @@ Hält man neben der Stoffmenge noch $V$ oder $p$ konstant, erhält man folgende 
 \begin{align}
 	p(\vartheta)&=p_0 [1+\beta\vartheta] \quad, \quad V =\text{const.}
 	\label{eq:p(T)}\\
-	V(\vartheta)&=V_0 [1+\beta\vartheta] \quad, \quad p=\text{const.}
+	V(\vartheta)&=V_0 [1+\beta\vartheta] \quad, \quad p=\text{const.}	
 \end{align}
 Hierbei wird die Temperatur $\vartheta$ in Celsius gemessen, sodass $p_0$ der Druck und $V_0$ das Volumen bei $0\si{\celsius}$ ist.
 Außerdem ist der Faktor $\beta=1/(273.15 \si{\celsius})$ der Umrechnung zwischen der Kelvin- und der Celsius-Skala geschuldet.\\
@@ -271,129 +271,225 @@ Zwischen den Messungen wird der Zylinder belüftet.
 Zuletzt sollte das Ventil geöffnet zurückgelassen werden.\\
 Ferner wird das Volumen des Zylinders gemessen.
 
+%Auswertung und Diskussion von Michael&Kevin
 \section{Auswertung}
 \label{sec:auswertung}
-
+Aufgrund von Missverständnissen, etc. zwischen den beiden Praktikanten, werden hier nun - wie mit dem Betreuer abgesprochen - die Messdaten von Kevin Lüdemann und Michael Lohmann verwendet.
+Diese befinden sich unter dem Abschnitt \ref{sec:mess}.
 \subsection{Gasthermometer}
-\subsubsection{Erwärmung des Gases}
+Die Abbildungen \ref{fig:gas1} und \ref{fig:gas2} zeigen den Druck $p$ im Kolben in Abhängigkeit von der Temperatur - separat für Erwärmen und Abkühlen.
+Da das Druckmessgerät nur Überdruck misst, muss der Umgebungsdruck addiert werden.
+Außerdem steht auf dem Gerät, dass der angezeigte Wert verdoppelt werden muss, um den Überdruck in kPa zu erhalten.\\
+
+
+Die Gleichung \eqref{eq:p(T)} besagt, dass ein linearer Zusammenhang  zwischen den beiden aufgetragenen Größen besteht:
+$p(\vartheta)=m\vartheta+b$.
+Der y-Achsenabschnitt $b$ ist der Umgebungsdruck $p_0$, die Steigung $m$ der Geraden das Produkt $p_0\beta$.
+Für den Absoluten Nullpunkt $\vartheta_0$ ergibt sich also diese Formel und der zugehörige Fehler aus der Fehlerfortpflanzung
+\begin{align}
+	\vartheta_0&=-1/\beta=-\frac{b}{m}
+	\label{eq:gas}\\
+	\sigma_{\vartheta_0}&=\sqrt{\sigma_\text{b}^2\left(\frac{-1}{\text{m}}\right)^2+\sigma_\text{m}^2\left(\frac{\text{b}}{\text{m}^2}\right)^2}
+	\label{eq:fegas}
+\end{align}
+ 
+\subsubsection{Erwärmen}
 \label{sec:gas1}
-Da die Werte vom Druckmessgerät in kPa/2 ausgegeben werden, müssen alle Werte zum Druck aus dieser Messung mit Faktor zwei multipliziert und dazu der Normaldruck von 1013 hPa addiert werden.
 \begin{figure}[!h]
 \centering
 \input{gas1p.tex}
-\caption{Der Druck ist in der Abbildung als Funktion für die Erwärmung aufgetragen. Mit Fehlerbalken von $\pm$0.08 (Annahmemessfehler) und einer linearen Regression durch die Messpunkte}
+\caption{Erwärmen: Druck als Funktion der Temperatur}
 \label{fig:gas1}
 \end{figure}
-
-Aus der Graphik \ref{fig:gas1} ergeben sich die hier aufgeführten Werte.
+Die lineare Regression dieser Daten ergibt diese Werte für $m$ und $b$:
 \begin{align*}
-	\text{m} &= (312.1\pm 2)\si{\pascal/\celsius}\\
-	\text{b} &= (101173\pm112)\si{\pascal}\\
+	\text{m} &= (345.1\pm0.9)\si{\pascal/\celsius}\\
+	\text{b} &= (101640\pm50)\si{\pascal}\\
 \end{align*}
-Die Geradengleichung $y=mx+b$ wird nun nach x umgestellt. Es ergibt sich $x=y-b/m$
+Setzt man diese Werte in die obigen Formeln zur Bestimmung des absoluten Nullpunkts \eqref{eq:gas} und \eqref{eq:fegas} ein, ergibt sich:
+$$\shadowbox{$\vartheta_0=(-294.5\pm0.8)\si{\celsius}$}$$
 
-Zu berechnen ist nun die Temperatur bei einem Druck von p=0. Diese Temperatur wird aus als Nullpunktstemperatur bezeichnet, da nichts kälter werden kann. Dazu berechnen wir einfach den x-Achsenabschnitt und setzten dafür y=0.
-
-$$\text{T}=(-308.5\pm2.1)\si{\celsius}$$
-
-
-Unter der Annahme eines idealen Gases ergibt sich folgende Fehlerfortpflanzung.
-\begin{align}
-	\sigma_{x}=\sqrt{\sigma_\text{b}^2\left(\frac{-1}{\text{m}}\right)^2+\sigma_\text{m}^2\left(\frac{\text{b}}{\text{m}^2}\right)^2}\label{eq:fegas}
-\end{align}
-
-
-\subsubsection{Abkühlung des Gases}
+\subsubsection{Abkühlen}
 \label{sec:gas2}
-Da sich bei den Messgeräten zur Abkühlung des Gases nichts verändert hat, werden hier auch weider die Messwerte mit 2 multipliziert und der Normaldruck (1013hPa) hinzu addiert.In der Graphik \ref{fig:gas2} aufgetragen ist der Druck p gegen die jeweilige Temperatur.
 \begin{figure}[!h]
 \centering
 \input{gas2p.tex}
-\caption{lineare Regression der Temperatur gegen den Druck für die Abkühlung}
+\caption{Abkühlen: Druck als Funktion der Temperatur}
 \label{fig:gas2}
 \end{figure}
-Wie bei der Erwärmung ist die Rechnung für die Nullpunktstemperatur die gleiche. Die Fehlerfortpflanzungsformel ist weiterhin:
+Aus der linearen Regression ergibt sich:
 \begin{align}
-	\sigma_{x}=\sqrt{\sigma_\text{b}^2\left(\frac{-1}{\text{m}}\right)^2+\sigma_\text{m}^2\left(\frac{\text{b}}{\text{m}^2}\right)^2}\label{eq:fegas}
+	\text{m} &= (343\pm3)\si{\pascal/\celsius}\\
+	\text{b} &= (101700\pm200)\si{\pascal}
 \end{align}
+Der daraus - wie zuvor - berechnete Nullpunkt liegt bei
+$$\shadowbox{$\vartheta_0=(-297\pm3)\si{\celsius}$}$$
 
-
-Aus der linearen Regression der Graphik, ergeben sich folgende Werte.
-\begin{align}
-	\text{m} &= (327\pm5)\si{\pascal/\celsius}\\
-	\text{b} &= (101296\pm260)\si{\pascal}
-\end{align}
-Setzt man wieder y=0, so ergibt sich die folgende Nullpunktstemperatur.
-$$\text{T}=(-322.8\pm5.2)\si{\celsius}$$
-
-\subsubsection{gewichteter Mittelwert}
-Der gewichtet Mittelwert von der Erwärmung und der Abkühlung des Gases ist:
-$$\shadowbox{$\overline{\text{T}}=(-310.1\pm1.9)\si{\celsius}$}$$
-Der  Literaturwert von T=$-273.15\si{\celsius}$ an hat somit zu unserem  Wert eine Abweichung von 12\%.
+\subsubsection{Mittelwert}
+Aus Erwärmen und Abkühlen kann jetzt der gewichteter Mittelwert gebildet werden.
+Es ergibt sich:
+$$\shadowbox{$\overline{\vartheta_0}=(-294.7\pm0.8)\si{\celsius}$}$$
+Dies ist eine Abweichung von 8\% zum Literaturwert von $\vartheta_0=-273.15\si{\celsius}$.
 
 \subsection{Spezifische Wärme von Luft}
-\subsubsection{Freiheitsgrade der Luft}
-Für den zweiten Teil und der Errechnung der Molwärme $c_V$ von Luft muss zunächst aus den gemessenen Daten die Druckänderung jeder Entladung ausgerechnet werden. Mit der Formel $\Delta p=\varrho_{H_2O}gh(1+r_1^2 / r_2^2 )$, lässt sich die Höhe der Wassersäule ausrechnen.Die Werte für $r_1$= 2.0 mm und $r_2$=9.2mm sind in der Praktikumsanleitung[S.73] zu finden.$\Delta Q$, also die Änderung der Energie lässt sich mit der Formel aus der Theorie berechnen. Die Kapazität berechnet sich aus zwei parallel geschalteten Kondensatoren mit jeweils 10$\mu$F.
-Mit der Gauß'schen Fehlerpfortpflanzung ergibt sich für $\Delta Q$ ein Fehler von:
-$$\sigma_{\Delta Q}=\sigma_U \cdot CU$$
-Der Fehler für $\Delta p$ ist:
-$$\sigma_{\Delta p}=\sigma_h \varrho g \left(1+r_1^2/r_2^2 \right)$$
-
-Die Graphik \ref{fig:druckwarm} zeigt die Druckänderung von Luft gegen die Kondensatorenergie aufgetragen.
+\subsubsection{Druck in Abhängigkeit der zugeführten Energie}
+Die vom Kondensator über den Heizdraht an die Luft im Kolben abgegebene Energie $\Delta Q$ berechnet sich aus \eqref{eq:Kondensator}.
+Um den Druckunterschied $\Delta p$ aus der Steighöhe zu bestimmen, wird folgende Formel benutzt: $$\Delta p = \rho_{\text{H}_2\text{O}} \cdot g \cdot h\left(1+\frac{r_1^2}{r_2^2}\right).$$
+Dabei sind $r_1=2.0$mm und $r_2=9.2$mm die Radien der Schenkel des Manometers.
+Die Werte entstammen der Praktikumsanleitung.
+Ferner wird mit einer Wasserdichte $\rho_{\text{H}_2\text{O}}$ von $1.0~\si{\gram/\centi \meter^3}$ gerechnet.\\
+In der nachfolgenden Abbildung \ref{fig:druckwarm} ist $\Delta p$ in Abhängigkeit von $\Delta Q$ aufgetragen.
 \begin{figure}[!h]
-\centering
-\input{kondwarm.tex}
-\caption{Energie des Kondensators aufgetragen gegen die Änderung im Druck}
-\label{fig:druckwarm}
+	\centering
+	\input{kondwarm.tex}
+	\caption{Druckänderung als Funktion der Energie des Kondensators}
+	\label{fig:druckwarm}
 \end{figure}
-Mit der Steigung,
- $m=(142.7\pm5.5)\frac{\text{J}}{\text{Pa}}$ lässt sich über die Formel aus der Theorie  die Freiheitsgrade des Gases bestimmen.
-.
 
-Es wird angenommen, dass $\Delta V=0$ ist, da das Volumen konstant bleibt.
-Setzt man $\frac{\Delta Q}{\Delta p}=\frac1m$ gilt:
+\subsubsection{Freiheitsgrade von Luft}
+Da wir hier die Manometeränderung vernachlässigen ($\Delta V=0$), kann das Gasvolumen als konstant angesehen werden.
+Damit vereinfacht sich Formel \eqref{eq:fhalbe} zur Bestimmung der Freiheitsgrade:
 \begin{align}
-	f/2= \frac{ \Delta Q}{V\cdot \Delta p}=\frac{1}{V\cdot m}
+	f= \frac{2\cdot \Delta Q}{V\cdot \Delta p}=\text{const.}
 \end{align}
+Es sollte sich also ein proportionaler Zusammenhang zwischen $\Delta Q$ und $\Delta p$ in Abb.\ref{fig:druckwarm} ergeben.
+Aus der durchgeführten linearen Regression ergibt sich eine Geradensteigung von $m=(108\pm5)\frac{\text{J}}{\text{Pa}}$
+bei einem reduziertem $\chi^2$ von 1.1.
+Um die Freiheitsgrade des Gases zu bestimmen, nehmen wir uns die Formel \eqref{eq:fhalbe}
+aus der Theorie.
+Hier wird angenommen, dass $\Delta V=0$ ist, da das Volumen konstant bleibt.
+Daraus ergibt sich diese Formel für die Freiheitsgrade f, wenn man $\frac{\Delta Q}{\Delta p}=\frac1m$ setzt, wo bei m die Steigung der Regressionsgeraden ist.
 
-Die gegebenen Maße für das Volumen des Zylinders sind r=0.044$\pm$0.002m und eine Höhe h=0.4$\pm$0.005
-
-
-
-Es ergibt sich mit der Gauß'schen Fehlerfortpflanzung .
+Das hierbei verwendete Volumen berechneten wir aus den aufgenommenen Maßen des Zylinders, welche $r=(0.044\pm 0.002)$m für den Radius und $h=(0.400\pm 0.005)$m für die Höhe betrugen.
+Der Fehler ergibt sich aus der Gauß'sche Fehlerfortpflanzung.
 \begin{align}
 	\sigma_f=\sqrt{\sigma_V^2\left(\frac{-2}{V^2\cdot m}\right)^2+\sigma_m^2\left(\frac{-2}{V\cdot m^2}\right)^2}
 \end{align}
-
-Es ergibt sich für Luft folgende Freiheitsgrade:
-$$\shadowbox{$f=(6.4\pm1.8 )$}$$
-
-Dies entspricht eine Abweichung von 21.9\% zu den angenommenen 5 Freiheitsgraden die Luft in idealisierter Form hat.
+Hierraus ergeben sich die unten aufgeführten Freiheitsgrade.
+$$\shadowbox{$f=(8\pm 1)$}$$
+Dies ergibt eine Abweichung von fast $40\%$ zum Literaturwert $f=5$, da Luft zu $99\%$ aus Stickstoff (N$_2$) und Sauerstoff (O$_2$) besteht, welche jeweils 5 Freiheitsgrade haben.
 
 \subsubsection{Spezifische Wärme $c_v$}
-Da man die Freiheitsgrade von Luft nun berechnet hat, lässt sich die Spezifische Wärme $c_v$ der Luft darauß berechnen.
-Dafür nutzt man die Formel:
+Aus den oben berechneten Freiheitsgraden der Luft kann man jetzt mit der gleichen Formel \eqref{eq:fhalbe}
+, wie oben die Spezifische Wärme $c_v$ der Luft berechnen.
+Es ergibt sich durch umstellen der Formel, die hier aufgeführte Formel.
 \begin{align}
 	c_v=\frac{f\cdot R}{2}
 \end{align}
-Die ist mit einem Fortpflanzungsfehler  für f behaftet. 
+Durch die Gauß'sche Fehlerfortpflanzung ergibt sich die Gleichung für den Fehler (unter der Voraussetzung, dass nur f fehlerbehaftet ist).
 \begin{align}
 	\sigma_{c_v}= \sqrt{\sigma_f^2\left(\frac{R}{2}\right)^2}
 \end{align}
-Der Wert für die spezifische Wärme von Luft ist dann:
-$$c_v=(26.6\pm7.5)\si{\joule/\mol\kelvin}$$
-Der Literaturwert ist $c_v=20.7\si{\joule/\mol\kelvin}$ \cite[S.260]{gerthsen}.
+Es ergibt sich ein Wert für die spezifische Wärme von Luft.
+$$\shadowbox{$c_v=(33\pm 5)\si{\joule/\mol\kelvin}$}$$
+Dies ist eine Abweichung von $40\%$
+zum Literaturwert von $c_v=20.7\si{\joule/\mol\kelvin}$ \cite[S. 260]{gerthsen}.
 
 \section{Diskussion}
 \label{sec:diskussion}
 \subsection{Gasthermometer}
-Die Abweichung des gewichteten Mittelwertes der beiden Messungen zu dem Literaturwert, beträgt 12\%. Der Literaturwert liegt nicht im Fehlerintervall des aus dem experimentell bestimmten Wert.
-Dies könnte verschiedene Ursachen haben: Wir gehen davon aus, dass eine der möglichen Fehlerquellen das nicht vollständige Eintauchen des Glasbehälters in das Eiswasser sein könnte. Das Thermometer sehen wir auch als mögliche Fehlerquelle an, da es im Vergleich zu dem Druckmessgerät ziemlich schwer abzulesen war. Trotzdem ist eine Abweichung von ca. 9 \% aus unserer Ansicht nicht zu groß, eher hätten wir größere Annahmefehler abschätzen sollen. 
-
+Unser Wert für die Nullpunktstemperatur hat eine Abweichung von 8\% zum Literaturwert.
+Diese Abweichung ist ziemlich gering, dennoch liegt der Literaturwert nicht im Fehlerintervall.
+Als mögliche Fehlerquelle kann man aufführen, dass wir das Manometer nicht ganz richtig bedient haben.
+Es ist wahrscheinlich, dass wir keinen vollständigen Druckausgleich des Gefäßes mit der Außenluft duchgeführt haben.
+Wir haben somit nicht den Außendruck bei einer Temperatur von 0\si{\celsius}.
+Dies sorgt dafür, dass die sich ergebene Grade einen zu höheren y-Achsenabschnitt hat, als sie sollte und damit die Nullpunktstemperatur niedrieger ist, als die des Literaturwertes.
+Dies können etwa 8hPa gewesen sein, die somit unser Ergebnis verfälscht haben.
 
 \subsection{Spezifische Wärme der Luft}
-Die Abweichung unseres Wertes zum Literaturwert beträgt 22.1\% dieser Wert ist zwar recht groß, jedoch liegt der Literaturwert in dem Fehlerintervall woher wir davon ausgehen können, dass die Annahmefehler gut abgeschätzt wurden. Eine Abweichung von 22.1\% ist wohl durch den Versuch an sich zu begründen, da es nur sehr schwer war die Höhe der Wassersäule  abzulesen. Hier ist es offensichtlichzu größeren Ablesefehler gekommen.
+Unsere Messung der Freiheitsgrade der Luft weicht um $40\%$ vom Literaturwert ab.
+Allerdings ist unser Fehlerintervall auch relativ groß, wenn es auch den theoretischen Wert nicht mit einschließt.
+Im Vergleich zu anderen Arbeiten ist unsere Geradensteigung zu klein (andere haben Werte von ca. $m=130$).
+Vermutlich haben wir durch die hohe Geschwindigkeit, mit der abgelesen werden musste, viele fehlerbehaftete Werte notiert.
+Um dies in zukünftigen Arbeiten zu beheben, wäre es eine Möglichkeit, eine Kamera auf die Skala zu richten und die Messungen aufzunehmen.
 
+\section{Messwerte}
+\label{sec:mess}
+\subsection{Gasthermometer}
+\begin{table}[!htb]
+	\centering	
+	\begin{tabular}{|c|c||c|c|}
+	\hline
+	Temperatur [$\si{\celsius}$]  & Überdruck (x2=kPa)&
+	Temperatur [$\si{\celsius}$]  & Überdruck (x2=kPa)\\
+	$\sigma=0.5\si{\celsius}$ & $\sigma=0.03~$kPa &
+	$\sigma=0.5\si{\celsius}$ & $\sigma=0.03~$kPa \\
+	\hline
+	0	&	-0.04	&	47	&	8.29	\\
+	1	&	0.2	&	50	&	8.75	\\
+	2	&	0.35	&	52	&	9.13	\\
+	5	&	0.95	&	55	&	9.66	\\
+	7	&	1.22	&	57	&	10.01	\\
+	10	&	1.88	&	60	&	10.49	\\
+	12	&	2.12	&	65	&	11.38	\\
+	15	&	2.81	&	68	&	11.8	\\
+	17	&	3.14	&	70	&	12.22	\\
+	20	&	3.67	&	73	&	12.68	\\
+	23	&	4.18	&	75	&	12.95	\\
+	25	&	4.47	&	77	&	13.29	\\
+	27	&	4.87	&	80	&	13.89	\\
+	30	&	5.34	&	85	&	14.7	\\
+	32	&	5.7	&	88	&	15.22	\\
+	35	&	6.15	&	90	&	15.57	\\
+	38	&	6.6	&	92	&	16.05	\\
+	40	&	6.99	&	95	&	16.41	\\
+	42	&	7.44	&	98	&	17.22	\\
+	45	&	7.96	&		&		\\
+	\hline
+	\end{tabular}
+	\caption{Erwärmen bei einem Umgebungsdruck von $1014.0\pm 0.1~\si{\hecto\pascal}$}
+\end{table}
+
+\begin{table}[!htb]
+	\centering	
+	\begin{tabular}{|c|c||c|c|}
+	\hline
+	Temperatur [$\si{\celsius}$]  & Überdruck (x2=kPa)&
+	Temperatur [$\si{\celsius}$]  & Überdruck (x2=kPa)\\
+	$\sigma=0.5\si{\celsius}$ & $\sigma=0.03~$kPa &
+	$\sigma=0.5\si{\celsius}$ & $\sigma=0.03~$kPa \\
+	\hline
+	92	&	15.93	&	45	&	7.97	\\
+	90	&	15.44	&	40	&	7.15	\\
+	88	&	15.1	&	35	&	6.29	\\
+	85	&	14.51	&	30	&	5.45	\\
+	80	&	13.8	&	23	&	4.18	\\
+	75	&	12.93	&	20	&	3.72	\\
+	70	&	12.14	&	15	&	2.7	\\
+	65	&	11.31	&	10	&	1.55	\\
+	60	&	10.52	&	5	&	0.81	\\
+	55	&	9.65	&	0	&	-0.03	\\
+	50	&	8.81	&		&		\\
+	\hline
+	\end{tabular}
+	\caption{Abkühlen  bei einem Umgebungsdruck von $1014.0\pm 0.1~\si{\hecto\pascal}$}
+\end{table}
+
+\subsection{Spezifische Wärme der Luft}
+Die verwendeten Kondensatoren haben eine Kapazität von $10~\si{\micro\farad}$ und sind parallel geschaltet.
+Es ergibt sich also eine Gsamtkapazität $C=20~\si{\micro\farad}$.
+
+\begin{table}[!htb]
+	\centering
+	\begin{tabular}{|c|c|}
+	\hline
+	$U$ [V] & $h$ [mm]\\
+	$\sigma_U=10~$V & $\sigma_h=0.1~$mm\\
+	\hline
+	100	&	2	\\
+	150	&	1	\\
+	200	&	5	\\
+	250	&	6	\\
+	300	&	10	\\
+	350	&	12	\\
+	400	&	18	\\
+	450	&	22	\\
+	500	&	26	\\
+	500	&	25	\\	
+	\hline
+	\end{tabular}
+	\caption{Steighöhe in Abhängigkeit der am Kondensator angelegten Spannung}
+\end{table}
 
 \begin{thebibliography}{100}
 
